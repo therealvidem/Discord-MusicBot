@@ -20,7 +20,7 @@ module.exports = {
     run: async (client, message, args, { GuildDB }) => {
         let player = await client.Manager.get(message.guild.id);
         if (!player) return client.sendTime(message.channel, "❌ | **Nothing is playing right now...**");
-        if (!args[0].value || !args[1].value) return client.sendTime(message.channel, "❌ | **Invalid track number.**");
+        if (!args[0] || !args[1]) return client.sendTime(message.channel, "❌ | **Invalid track number.**");
         
         // Check if (args[0] - 1) and (args[1] - 1) are valid indices
         let sourceTrackNum = parseInt(args[0] - 1);
