@@ -4,7 +4,7 @@ const { TrackUtils } = require("erela.js");
 module.exports = {
     name: "bump",
     description: "Moves a track to the front of the queue.",
-    usage: "",
+    usage: "<number>",
     permissions: {
         channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
         member: [],
