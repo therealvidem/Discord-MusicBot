@@ -22,7 +22,7 @@ module.exports = {
         if (!message.member.voice.channel) return client.sendTime(message.channel, "❌ | **You must be in a voice channel to play something!**");
         if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return client.sendTime(message.channel, ":x: | **You must be in the same voice channel as me to use this command!**");
         let SearchString = args.join(" ");
-        if (!SearchString) return client.sendTime(message.channel, `**Usage - **\`${GuildDB.prefix}play [song]\``);
+        if (!SearchString) return client.sendTime(message.channel, `**Usage - **\`${GuildDB.prefix}playnext [song]\``);
         let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
         let Searching = await message.channel.send(":mag_right: Searching...");
         if (!CheckNode || !CheckNode.connected) {
