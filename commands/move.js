@@ -37,7 +37,7 @@ module.exports = {
         const track = player.queue[sourceTrackNum];
         player.queue.splice(sourceTrackNum, 1);
         player.queue.splice(destinationTrackNum, 0, track);
-		    client.sendTime(message.channel, "✅ | **" + track.title + "** has been moved from " + (sourceTrackNum + 1) + " to " + destinationTrackNum + ".");
+		    client.sendTime(message.channel, "✅ | **" + track.title + "** has been moved from " + (sourceTrackNum + 1) + " to " + (destinationTrackNum + 1) + ".");
     },
 
     SlashCommand: {
