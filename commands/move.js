@@ -25,8 +25,8 @@ module.exports = {
         // Check if (args[0] - 1) and (args[1] - 1) are valid indices
         let sourceTrackNum = parseInt(args[0] - 1);
         let destinationTrackNum = parseInt(args[1] - 1);
-        if ((sourceTrackNum < 1 || sourceTrackNum > player.queue.length - 1)
-         || (destinationTrackNum < 1 || destinationTrackNum > player.queue.length - 1)) {
+        if ((sourceTrackNum < 0 || sourceTrackNum > player.queue.length - 1)
+         || (destinationTrackNum < 0 || destinationTrackNum > player.queue.length - 1)) {
 			    return client.sendTime(message.channel, "❌ | **Invalid track number.**");
         }
         if (sourceTrackNum == destinationTrackNum) {
@@ -37,7 +37,7 @@ module.exports = {
         const track = player.queue[sourceTrackNum];
         player.queue.splice(sourceTrackNum, 1);
         player.queue.splice(destinationTrackNum, 0, track);
-		    client.sendTime(message.channel, "✅ | **" + track.title + "** has been moved from " + sourceTrackNum + " to " + destinationTrackNum + ".**");
+		    client.sendTime(message.channel, "✅ | **" + track.title + "** has been moved from " + (sourceTrackNum + 1) + " to " + destinationTrackNum + ".");
     },
 
     SlashCommand: {
@@ -75,8 +75,8 @@ module.exports = {
             // Check if (args[0] - 1) and (args[1] - 1) are valid indices
             let sourceTrackNum = parseInt(args[0] - 1);
             let destinationTrackNum = parseInt(args[1] - 1);
-            if ((sourceTrackNum < 1 || sourceTrackNum > player.queue.length - 1)
-            || (destinationTrackNum < 1 || destinationTrackNum > player.queue.length - 1)) {
+            if ((sourceTrackNum < 0 || sourceTrackNum > player.queue.length - 1)
+            || (destinationTrackNum < 0 || destinationTrackNum > player.queue.length - 1)) {
               return client.sendTime(interaction, "❌ | **Invalid track number.**");
             }
             if (sourceTrackNum == destinationTrackNum) {
@@ -87,7 +87,7 @@ module.exports = {
             const track = player.queue[sourceTrackNum];
             player.queue.splice(sourceTrackNum, 1);
             player.queue.splice(destinationTrackNum, 0, track);
-            client.sendTime(interaction, "✅ | **" + track.title + "** has been moved from " + sourceTrackNum + " to " + destinationTrackNum + ".**");
+            client.sendTime(interaction, "✅ | **" + track.title + "** has been moved from " + (sourceTrackNum + 1) + " to " + (destinationTrackNum + 1) + ".");
         },
     },
 };
