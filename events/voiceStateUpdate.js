@@ -59,10 +59,10 @@ module.exports = async (client, oldState, newState) => {
         await client.channels.cache.get(player.textChannel).send(emb);
 
         // update the now playing message and bring it to the front
-        let msg2 = await client.channels.cache
-          .get(player.textChannel)
-          .send(player.nowPlayingMessage.embeds[0]);
-        player.setNowplayingMessage(msg2);
+        // let msg2 = await client.channels.cache
+        //   .get(player.textChannel)
+        //   .send(player.nowPlayingMessage.embeds[0]);
+        // player.setNowplayingMessage(msg2);
 
         player.pause(false);
       }

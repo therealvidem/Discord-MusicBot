@@ -162,24 +162,6 @@ class DiscordMusicBot extends Client {
       )
       .on("trackStart", async (player, track) => {
         this.SongsPlayed++;
-        let TrackStartedEmbed = new MessageEmbed()
-          .setAuthor(`Now playing ♪`, this.botconfig.IconURL)
-          .setThumbnail(player.queue.current.displayThumbnail())
-          .setDescription(`[${track.title}](${track.uri})`)
-          .addField("Requested by", `${track.requester}`, true)
-          .addField(
-            "Duration",
-            `\`${prettyMilliseconds(track.duration, {
-              colonNotation: true,
-            })}\``,
-            true
-          )
-          .setColor(this.botconfig.EmbedColor);
-        //.setFooter("Started playing at");
-        let NowPlaying = await client.channels.cache
-          .get(player.textChannel)
-          .send(TrackStartedEmbed);
-        player.setNowplayingMessage(NowPlaying);
       })
       .on("queueEnd", (player) => {
         let QueueEmbed = new MessageEmbed()
